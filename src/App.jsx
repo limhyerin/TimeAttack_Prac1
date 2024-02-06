@@ -1,11 +1,23 @@
+import React from "react";
 import "./App.css";
+import { inputValue, increase, decrease } from "./redux/modules/calculator";
+import { UseDispatch, dispatch } from "react-redux";
 
 function App() {
+  const plusHandler = () => {
+    dispatch(increase());
+  }
+
+  const minusHandler = () => {
+    dispatch(decrease());
+  }
   return (
     <div className="App">
       <h1>덧셈과 뺄셈이 가능한 앱 만들기</h1>
       <div>
-        <input /> 만큼을 <button>더할게요</button> <button>뺄게요</button>
+        <input type="number" value={inputValue} onChange={(e) => {
+
+        }}/> 만큼을 <button onClick={plusHandler}>더할게요</button> <button onClick={minusHandler}>뺄게요</button>
       </div>
       <hr />
       <div>
